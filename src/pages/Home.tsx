@@ -54,7 +54,7 @@ export default function Home() {
                     className="absolute left-0 right-0 -bottom-3"
                   >
                     <ScrawledText 
-                      text="John Doe's"
+                      text=""
                       className="absolute left-0 right-0 -bottom-3 text-brand-500"
                       position="below"
                     />

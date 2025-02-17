@@ -45,18 +45,20 @@ export default function Home() {
                 Welcome to{' '}
                 <span className="relative">
                   <span className="text-brand-600">
-                    <ScrawledText 
-                      text="John Doe's"
-                      className="w-full text-brand-500"
-                      position="below"
-                    />
+                    John Doe's
                   </span>
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: 1.2 }}
                     className="absolute left-0 right-0 -bottom-3"
-                  />
+                  >
+                    <ScrawledText 
+                      text=""
+                      className="w-full text-brand-500"
+                      position="below"
+                    />
+                  </motion.div>
                 </span>
                 {' '}
                 <motion.span

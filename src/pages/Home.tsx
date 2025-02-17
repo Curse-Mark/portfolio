@@ -22,7 +22,7 @@ export default function Home() {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       ref={containerRef}
-      className="min-h-[calc(100vh-4rem)] relative overflow-hidden"
+      className="min-h-[calc(100vh-4rem)] relative overflow-hidden bg-gradient-to-r from-gray-100 to-gray-300"
     >
       <Navbar />
       <div className="absolute inset-0 bg-gradient-to-b from-brand-50 via-brand-50/50 to-white" />
@@ -47,7 +47,7 @@ export default function Home() {
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 mb-6">
                 Welcome to{' '}
                 <span className="relative">
-                  <span className="text-brand-600">
+                  <span className="text-brand-600 font-handwriting">
                     John Doe's
                   </span>
                   <motion.div

@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import ScrawledText from '@/components/ScrawledText';
+import Navbar from '@/components/Navbar';
+import TextScramble from '@/components/TextScramble';
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -22,6 +24,7 @@ export default function Home() {
       ref={containerRef}
       className="min-h-[calc(100vh-4rem)] relative overflow-hidden"
     >
+      <Navbar />
       <div className="absolute inset-0 bg-gradient-to-b from-brand-50 via-brand-50/50 to-white" />
 
       <motion.div 
@@ -37,8 +40,8 @@ export default function Home() {
           >
             <motion.div 
               className="relative inline-block"
-              initial={{ opacity: 0, y: 20, rotateY: -45 }}
-              animate={{ opacity: 1, y: 0, rotateY: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 mb-6">
@@ -54,8 +57,8 @@ export default function Home() {
                     className="absolute left-0 right-0 -bottom-3"
                   >
                     <ScrawledText 
-                      text=""
-                      className="absolute left-0 right-0 -bottom-3 text-brand-500"
+                      text="John Doe's"
+                      className="w-full text-brand-500"
                       position="below"
                     />
                   </motion.div>
@@ -86,31 +89,20 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 3 }}
             >
-              <Button 
-                asChild 
-                size="lg" 
-                className="bg-brand-600 hover:bg-brand-700 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <Link to="/about">
-                  Learn More <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button 
-                asChild 
-                variant="outline" 
-                size="lg" 
-                className="border-brand-200 hover:bg-brand-50 text-lg px-8 py-6 shadow-md hover:shadow-lg transition-all duration-300"
-              >
-                <Link to="/contact">Get in Touch</Link>
-              </Button>
+              <Link to="/projects">
+                <Button className="text-white bg-brand-600 hover:bg-brand-700">
+                  View Projects <ArrowRight />
+                </Button>
+              </Link>
+              <Link to="/contact">
+                <Button variant="outline">
+                  Contact Me
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
       </motion.div>
-      <motion.div
-        className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white to-transparent"
-        style={{ opacity: useTransform(scrollYProgress, [0, 0.5], [0, 1]) }}
-      />
     </motion.div>
   );
 }

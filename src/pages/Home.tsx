@@ -4,8 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import ScrawledText from '@/components/ScrawledText';
-import Navbar from '@/components/Navbar';
-import TextScramble from '@/components/TextScramble';
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -22,9 +20,8 @@ export default function Home() {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       ref={containerRef}
-      className="min-h-[calc(100vh-4rem)] relative overflow-hidden bg-gradient-to-r from-gray-100 to-gray-300"
+      className="min-h-[calc(100vh-4rem)] relative overflow-hidden"
     >
-      <Navbar />
       <div className="absolute inset-0 bg-gradient-to-b from-brand-50 via-brand-50/50 to-white" />
 
       <motion.div 
@@ -47,21 +44,19 @@ export default function Home() {
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 mb-6">
                 Welcome to{' '}
                 <span className="relative">
-                  <span className="text-brand-600 font-handwriting">
-                    John Doe's
+                  <span className="text-brand-600">
+                    <ScrawledText 
+                      text="John Doe's"
+                      className="w-full text-brand-500"
+                      position="below"
+                    />
                   </span>
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: 1.2 }}
                     className="absolute left-0 right-0 -bottom-3"
-                  >
-                    <ScrawledText 
-                      text="John Doe's"
-                      className="w-full text-brand-500"
-                      position="below"
-                    />
-                  </motion.div>
+                  />
                 </span>
                 {' '}
                 <motion.span
@@ -89,20 +84,31 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 3 }}
             >
-              <Link to="/projects">
-                <Button className="text-white bg-brand-600 hover:bg-brand-700">
-                  View Projects <ArrowRight />
-                </Button>
-              </Link>
-              <Link to="/contact">
-                <Button variant="outline">
-                  Contact Me
-                </Button>
-              </Link>
+              <Button 
+                asChild 
+                size="lg" 
+                className="bg-brand-600 hover:bg-brand-700 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <Link to="/about">
+                  Learn More <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button 
+                asChild 
+                variant="outline" 
+                size="lg" 
+                className="border-brand-200 hover:bg-brand-50 text-lg px-8 py-6 shadow-md hover:shadow-lg transition-all duration-300"
+              >
+                <Link to="/contact">Get in Touch</Link>
+              </Button>
             </motion.div>
           </motion.div>
         </div>
       </motion.div>
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white to-transparent"
+        style={{ opacity: useTransform(scrollYProgress, [0, 0.5], [0, 1]) }}
+      />
     </motion.div>
   );
 }

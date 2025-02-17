@@ -37,8 +37,8 @@ export default function Home() {
           >
             <motion.div 
               className="relative inline-block"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20, rotateY: -45 }}
+              animate={{ opacity: 1, y: 0, rotateY: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 mb-6">
@@ -54,8 +54,8 @@ export default function Home() {
                     className="absolute left-0 right-0 -bottom-3"
                   >
                     <ScrawledText 
-                      text=""
-                      className="w-full text-brand-500"
+                      text="John Doe's"
+                      className="absolute left-0 right-0 -bottom-3 text-brand-500"
                       position="below"
                     />
                   </motion.div>
